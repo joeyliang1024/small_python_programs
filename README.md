@@ -1,1 +1,5 @@
-# small_python_programs
+# 值得紀錄的小程式
+- calculator.py:
+  - 計算四則運算
+  - 可以用的符號：+, -, *, /, ^, %
+  - 會先計算括弧內的答案

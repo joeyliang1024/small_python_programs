@@ -11,8 +11,8 @@ x2 = "(((2*9*3+5*8)/2+6*(4^5))/2+(12-23))*3"
 x3 = "2*(5-1)+(((2*9*3+5*8)/2+6*(4^5))/2+(12-23))*3"
 x4 = "10/3"
 
-print(calculator(x1)) 
-print(calculator(x2))  
-print(calculator(x3))  
-print(calculator(x4))
+print(calculator(x1))  #74.212
+print(calculator(x2))  #9253.5
+print(calculator(x3))  #9261.5
+print(calculator(x4))  #3.3333333333333335
 ```

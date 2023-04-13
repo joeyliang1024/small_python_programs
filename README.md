@@ -40,6 +40,7 @@ if tour != "knight tour not found":
 else:
     print(tour)
 '''
+result:
  30  27  10  55  36  25   8   5 
  11  58  29  26   9   6  35  24 
  28  31  56  37  54  33   4   7 

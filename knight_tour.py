@@ -13,7 +13,8 @@ def knight_tour(chess_board_size, pos_x, pos_y, moves = [(2,1), (1,2), (-1,2), (
             degree_map[new_x][new_y] = degree_map[new_x][new_y]-1 
     # fist point condition update
     visited_map[pos_x][pos_y] = visited_count           
-    reduce_degree(find_possible_steps(pos_x, pos_y, moves, degree_map, visited_map))      
+    reduce_degree(find_possible_steps(pos_x, pos_y, moves, degree_map, visited_map)) 
+    # other points
     while visited_count != chess_board_size*chess_board_size:
         visited_count+=1
         possible_steps = find_possible_steps(pos_x, pos_y, moves, degree_map, visited_map)

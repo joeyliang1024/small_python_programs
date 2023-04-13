@@ -25,9 +25,9 @@ print(calculator(x4))  #3.3333333333333335
     2. Creating the 8 possible moves.
     3. Initiating the **start position** of Knight.
     4. Looping for finding the Hamiltonian Path for Knight’s Tour.
-      - Checking if the moves within the board boundaries or not.
-      - Finding the next position for Knight's movement.
-      - Updating the degree map and the new move.
+        - Checking if the moves within the board boundaries or not.
+        - Finding the next position for Knight's movement.
+        - Updating the degree map and the new move.
     5. Print out the Hamiltonian Path for Knight’s Tour
 ```ruby  
 from knight_tour import knight_tour

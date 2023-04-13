@@ -1,5 +1,5 @@
 # 小程式紀錄
-##arithmetic.py:
+## arithmetic.py:
  - 計算四則運算
  - 可以用的符號：+, -, *, /, ^, %
  - 會先計算括弧內的答案
@@ -16,7 +16,7 @@ print(calculator(x2))  #9253.5
 print(calculator(x3))  #9261.5
 print(calculator(x4))  #3.3333333333333335
 ```
-##knight_tour.py:
+## knight_tour.py:
 - Problems: A Solution for Knight’s Tour with NxN Chessboard (8 ≤ N ≤ 30)
 - Note: If N is an odd number, there exist the solutions only for Knight’s start positions at (i, j) where the sum of i and j is equal to
     an even number.

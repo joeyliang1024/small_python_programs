@@ -13,8 +13,8 @@ x4 = "10/3"
 
 print(calculator(x1)) #-33.788
 print(calculator(x2)) #9253.5
-print(calculator(x3)) # -9170.5
-print(calculator(x4)) # 3.3333333333333335
+print(calculator(x3)) #-9170.5
+print(calculator(x4)) #3.3333333333333335
 ```
 ## knight_tour.py:
 - Problems: A Solution for Knight’s Tour with NxN Chessboard (8 ≤ N ≤ 30)

@@ -3,25 +3,35 @@ def calculator(equation_string):
     numbers = re.split('\+|-|\*|\/|\^|\(|\)|%', equation_string)
     operators = ["START"]+re.findall('\+|-|\*|\/|\^|\(|\)|%', equation_string)
     
+    def get_negative_numbers(numbers, operators):
+        remove_num_idx = []
+        remove_op_idx = []
+        for idx, (num, op) in enumerate(zip(numbers, operators)):
+            if idx > 0 and op=="-":
+                if numbers.copy()[idx-1] == "":
+                    numbers[idx] = "-"+num
+                    remove_num_idx.append(idx-1)
+                    remove_op_idx.append(idx)
+        return [i for j, i in enumerate(numbers) if j not in remove_num_idx], [i for j, i in enumerate(operators) if j not in remove_op_idx]
+    
     def calcualte(A, B, operator): 
-        A, B = float(A),float(B)
         if   operator=="+":
-            return A+B
+            return float(A)+float(B)
         elif operator=="-":
-            return A-B
+            return float(A)-float(B)
         elif operator=="*":
-            return A*B
+            return float(A)*float(B)
         elif operator=="/":
-            return A/B
+            return float(A)/float(B)
         elif operator=="%":
-            return A%B
+            return float(A)%float(B)
         elif operator=="^":
-            return pow(A, B)
+            return pow(float(A), float(B))
         
     def list_calculation(list):
         numb = [list[i] for i in range(len(list)) if i%2==0]
         oper = [list[i] for i in range(len(list)) if i%2!=0]
-        for idx,o in enumerate(oper):
+        for idx, o in enumerate(oper):
             if o != "+" and o != "-":
                 tmp = calcualte(numb[idx], numb[idx+1], o)
                 numb[idx], numb[idx+1] = "pop", tmp
@@ -36,6 +46,7 @@ def calculator(equation_string):
     def parse_parentheses(numbers, operators):
         lists = [[] for i in range(operators.count("(")+1)]
         count,last_count, list_idx = 0, 0, 0
+        numbers, operators = get_negative_numbers(numbers, operators)
         for num, op in zip(numbers, operators):
             last_count=count
             if op=="(":

@@ -51,3 +51,38 @@ result:
  51  14  45  62  49  16  21  40
 '''
 ```
+## evaluate_metric.py:
+- 目前只有計算 BLEU 和 CHRF++
+- 輸入請參考範例
+```ruby
+from evaluate_metric import compute_batch_sentence_BLEU, compute_batch_sentence_CHRF_plus_plus
+
+t = ["上帝的創造 太初，上帝創造天地。", "上帝說：「要有光」，就有了光。"]
+c = ["上帝的創造 起頭，上帝創造天及地。", "上帝講「著有光」，就有光。"]
+t = [" ".join([word for word in sentence]) for sentence in t]
+c = [[" ".join([word for word in sentence])] for sentence in c]
+bleu_score = compute_batch_sentence_BLEU(t, c)
+chrf_score = compute_batch_sentence_CHRF_plus_plus(t, c) / 100
+print(f"BLEU:   {bleu_score:.5f}\nCHRF++: {chrf_score:.5f}")
+
+# BLEU:   0.51159
+# CHRF++: 0.50190
+```
+## split_POJ_sentence.py
+- POJ為白話字，台語書寫法的一種
+- 目前是將"-"切割出來，如果不用切的話自行寫for迴圈加上即可
+```ruby
+from split_POJ_sentence import split_POJ_sentence
+
+sentence = "(bîn-tsú-tóng) , 「tsóng-thóng. hāu「-suán-jîn. Obama sì-ji̍t。!"
+parts = split_POJ_sentence(sentence)
+print(parts)
+word2idx = {word:idx for idx, word in enumerate(set(parts))}
+print([word2idx[word] for word in parts])
+# ['(', 'bîn', '-', 'tsú', '-', 'tóng', ')', ' ', ',', ' ', '「', 'tsóng', '-',
+#  'thóng', '.', ' ', 'hāu', '「', '-', 'suán', '-', 'jîn', '.', ' ', 'Obama', '
+#  ', 'sì', '-', 'ji̍t', '。', '!']
+#
+#[10, 15, 14, 17, 14, 5, 16, 19, 0, 19, 13, 3, 14, 2, 4, 19, 6, 13, 14, 7, 14, 1,
+#  4, 19, 18, 19, 8, 14, 9, 12, 11]
+```
